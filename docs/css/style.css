@@ -1,4 +1,7 @@
-.title{
-  font-size:30px;
+.caption{
+  font-size:20px;
   font-weight:bold;
+  background:#058;
+  color:#fff;
+  height:64px;
 }

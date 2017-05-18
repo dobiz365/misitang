@@ -1,18 +1,18 @@
----
-layout: default
-title: 我的Blog--git init
----
 <html>
  <head>
    <link rel="stylesheet" href="/css/style.css">
-  </head>
-  <body>
-　　<div class="title">{{ page.title }}</div>
-　　<p>最新文章</p>
-　　<ul>
-　　　　{% for post in site.posts %}
-　　　　　　<li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-　　　　{% endfor %}
-　　</ul>
-  </body>
+   <meta charset="utf-8">
+   <title>Misitang的博客空间</title>
+</head>
+<body>
+<div class="caption">
+<img src='/images/icon.png'/>
+</div>
+<p>最新文章</p>
+<ul>
+{% for post in site.posts %}
+<li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+{% endfor %}
+</ul>
+ </body>
 </html>
