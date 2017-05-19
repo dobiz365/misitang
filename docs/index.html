@@ -8,8 +8,11 @@
 </head>
 <body>
 <div class="caption">
-<img src='/images/icon.png' style="vertical-align: middle;"/>
-　Misitang的博客空间 
+　　<img src='/images/icon.png' style="vertical-align: middle;"/>
+　Misitang的博客空间 {% for category in site.categories %}
+
+<span> {% category | last | size %} </span>
+{% endfor %}
 </div>
 <p>最新文章</p>
 <ul>
