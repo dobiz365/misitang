@@ -5,6 +5,8 @@
   color:#111;
   height:64px;
   line-height:64px;
+  border-bottom:2px solid #ddd;
+  box-shadow:0 1px 1px #999;
 }
 body{
 	margin:0;
