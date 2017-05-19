@@ -1,12 +1,12 @@
 .caption{
   font-size:20px;
   font-weight:bold;
-  background:#DEFFAC;
+  background:#EFFFD7;
   color:#111;
   height:64px;
   line-height:64px;
 }
-.body{
+body{
 	margin:0;
 	padding:0;
 	
