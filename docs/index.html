@@ -9,7 +9,11 @@
 <body>
 <div class="caption">
 　　<img src='/images/icon.png' style="vertical-align: middle;"/>
-　Misitang的博客空间 <a href="{{ '/categories/' | prepend: site.baseurl }}">大类分解</a>
+　Misitang的博客空间 {% for category in site.categories %} 
+				    	<li><a href="#{{ category }}-ref">
+				    		{{ category | join: "/" }} <span style="color: #999999;" >({{ site.categories[category].size }})</span>
+				    	</a></li>
+			    	{% endfor %}
 </div>
 <p>最新文章</p>
 <ul>
