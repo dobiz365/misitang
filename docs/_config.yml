@@ -1,1 +1,17 @@
-theme: jekyll-theme-cayman
+# Site settings
+name: Misitang
+email: 147885198@qq.com
+author: Misitang
+url: http://www.misitang.com
+resume_site: http://www.xzpad.com
+github: https://github.com/dobiz365/
+baseurl: "/"
+description: 知道的越多，不知道的也越多！
+meta_description: 米斯唐;博客;golang;php;
+banner: 学而不思则罔，思而不学则殆。
+
+#permalink: /:categories/:year/:month/:day/:title/
+permalink: /:year/:month/:day/:title/
+paginate: 20
+
+highlighter: Pygments
