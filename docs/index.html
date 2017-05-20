@@ -8,7 +8,7 @@ comments: false
 <section class="banner">
     <div class="collection-head">
         <div class="container">
-            <div class="collection-title">
+            <div class="collection-title" style="padding:0;">
               <h1 class="collection-header" id="sub-title"><span>{{ site.subtitle }}</span></h1>
                 <div class="collection-info">
                     <span class="meta-info mobile-hidden">
@@ -38,7 +38,7 @@ comments: false
                     <h3 class="repo-list-name">
                       <a href="{{ post.url }}">{{ post.title }}</a>
                     </h3>
-                    <p class="repo-list-description">
+                    <p class="repo-list-description" style="text-indent:2em;color:#444;">
                         {{ post.description | strip_html | strip }}
                     </p>
                     <p class="repo-list-meta">
