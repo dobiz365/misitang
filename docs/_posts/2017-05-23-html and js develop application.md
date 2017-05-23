@@ -2,8 +2,7 @@
 layout: post
 title: 用HTML5和JS开发本地应用程序
 categories: javascript
-description: 那么Javascript可以开发桌面程序吗？答案是肯定的。在Github上就有一个开源的项目node-webkit，现在已更名为nw.js。它就可以实现这个功能。那么它是怎样实现的呢？
-Nw.js这个项目采用webkit内核作为界面显示的引擎，众所周知，webkit是对html5支持最好的一个浏览器之一，我们可以用最新的html5技术来开发我们的桌面软件。但考虑到安全性，webkit不支持操作本地资源。Nw.js就想到了一个创新的想法，它把node.js集成了进来，而且让node.js和webkit的Javascript引擎运行在同一个进程中。
+description: 那么Javascript可以开发桌面程序吗？答案是肯定的。在Github上就有一个开源的项目node-webkit，现在已更名为nw.js。它就可以实现这个功能。那么它是怎样实现的呢？Nw.js这个项目采用webkit内核作为界面显示的引擎，众所周知，webkit是对html5支持最好的一个浏览器之一，我们可以用最新的html5技术来开发我们的桌面软件。但考虑到安全性，webkit不支持操作本地资源。Nw.js就想到了一个创新的想法，它把node.js集成了进来，而且让node.js和webkit的Javascript引擎运行在同一个进程中。
 keywords: html,javascript,本地程序
 ---
 
@@ -18,7 +17,7 @@ Nw.js这个项目采用webkit内核作为界面显示的引擎，众所周知，
 
 其次，编写我们的程序脚本。我们自己的脚本最好存放在一个单独的文件夹中。比如APP。在这个文件夹中，最重要的是package.json文件。这个文件定义了程序的入口文件，以及窗口的样式等等，
 
-```
+```javascript
 {
   "name": "nw-demo",
   "version": "0.0.1",
@@ -35,7 +34,7 @@ Nw.js这个项目采用webkit内核作为界面显示的引擎，众所周知，
 这是一个JSON格式的文本文件，我们可以自己用记事本或notepad++来创建。
 最后，就是编写我们自己的脚本了。其实就是写网页啊，作为前端工作人员，这肯定是您最擅长的工作了。当然，因为要操作本地资源，你还得会node.js。我要做一个把word复制过来的图文文档转换为HTML的软件。必须得把本地图片读取出来编码为BASE64符加在HTML中。好在html5本身支持剪贴板，我用如下代码为文本框绑定了onpaste（粘贴）事件：
 
-```
+```javascript
 document.getElementById( 'testInput' ).addEventListener( 'paste', function( e ){
 	var clipboardData = e.clipboardData;
 	if(clipboardData.types.indexOf('text/html')!=-1){
@@ -58,7 +57,7 @@ var imgReader = function( image ){
 
 关键代码在base64_encode中。这里需要调用本地资源，读取图片然后编码为base64格式。
 
-```
+```javascript
 var fs = require('fs');
 var os=require('os');
 function base64_encode(file) {
