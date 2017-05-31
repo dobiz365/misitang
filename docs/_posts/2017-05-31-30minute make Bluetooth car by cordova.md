@@ -37,7 +37,7 @@ cordova run android –device
 ！[](ui.png)
 是不是非常简洁呢？
 Cordova的界面都是HTML文件，只要您会网页设计，就可以设计APP。上面的UI可以用以下HTML结构来实现：
-```
+```html
 <div id='box_div'></div>
 <div id='setting_btn'>蓝牙设备：（未连接）</div>
 <div id='setting'></div>
@@ -47,14 +47,14 @@ box_div用于处理手指触摸，setting_btn就是右上角连接按钮，setti
 ### 5.蓝牙连接
 因为用到了cordova的插件，所以我们必须认真阅读这个插件的API文档。网址是：[https://www.npmjs.com/package/cordova-plugin-bluetooth-serial](https://www.npmjs.com/package/cordova-plugin-bluetooth-serial)
 尤其是我们需要用到的几个API，它们主要有isEnable、list、connect、write这四个方法。方法签名如下：
-```
+```javascript
 bluetoothSerial.isEnabled(success, failure);
 参数
 success: 蓝牙设备开启时的回调函数
 failure: 蓝牙设备关闭时的回调函数
 ```
 要注意的是它使用的是回调的方式，我们不能立即、直接得到蓝牙的状态。需要在success这个回调函数是才能确定蓝牙开启了，只有在蓝牙开启的情况下我们才能接着进行下一步。
-```
+```javascript
 bluetoothSerial.list(success, failure);
 success时返回的参数如下：
 [{
@@ -70,7 +70,7 @@ success时返回的参数如下：
 }]
 ```
 该方法返回的是一个数组，数组中的每个元素有四个字段，其中address和name字段是我们需要用到的，name字段用在界面显示，address用于和这个蓝牙设备连接。
-```
+```javascript
 bluetoothSerial.connect(macAddress_or_uuid, connectSuccess, connectFailure);
 参数
 macAddress_or_uuid: 蓝牙设备的address(在ios中是uuid)
@@ -87,25 +87,25 @@ failure: 发送失败时回调
 
 ### 6.多点触摸处理
 只要你的手机支持多点触措，那么Cordova也是支持多点触摸的。在Javascript实现规范中，对多点触摸的编程非常简单。首先需要绑定触摸事件
-```
+```javascript
 $('#box_div').on('touchstart',touchMove);  
 $('#box_div').on('touchmove',touchMove);  
 $('#box_div').on('touchend',touchEnd); 
 ```
 原谅我还在使用jquery，因为它用着还挺方便的，也没碍着我什么，那为什么不用呢？
 在touchMove中就是处理触摸事件的主要代码。在代码中首先取出触摸信息
-```
+```javascript
 var touches=evt.originalEvent.touches;
 ```
 这个touches里面包含有当前手机上的所有触摸点，看你手机的支持情况了，说不定会有10个呢？它是一个数组，我们可以用如下循环来处理所有点的信息
-```
+```javascript
 for(var i=0;i<touches.length;i++){
 	var touch=touches[i];
 	//处理代码
 }
 ```
 每一个点中包含有很多信息
-```
+```javascript
 clientX / clientY: //触摸点相对浏览器窗口的位置
 pageX / pageY: //触摸点相对于页面的位置
 screenX / screenY: //触摸点相对于屏幕的位置
@@ -113,7 +113,7 @@ identifier: //touch对象的ID
 target: //当前的DOM元素
 ```
 有了这些信息我们就可以根据它们计算出当前触摸点应当发送的命令。下面以前进后退速度命令为例
-```
+```javascript
 //w,h触摸区宽和高  x,y触摸点的坐标
 function speedMove(x,h,x,y){
 	var arr=['5','4','3','2','1','0','6','7','8','9'];
