@@ -2,8 +2,8 @@
 layout: post
 title: windows7中显示“隐藏已知文件类型的扩展名”
 categories: Blog
-description: some word here
-keywords: keyword1, keyword2
+description: 比如有时候我想把文件扩展名给隐藏起来，但过了几天又想把扩展名给显示出来（是不是感觉很蛋疼啊，其实这样的操作还真存在，也不少见。）但打开资源管理器却发现，总是找不到“隐藏已知文件类型的扩展名”的选项，难道有人把它吃了吗？
+keywords: windows7,隐藏扩展名
 ---
 
 ## windows7中显示“隐藏已知文件类型的扩展名”
