@@ -12,7 +12,8 @@ keywords: golang,goroutine,chan
 可见缓冲可以显著提高吞吐量
 */
 
-​```c++
+```
+
 package main
 
 import (
@@ -49,4 +50,5 @@ func main() {
 	}()
 	<-time.After(2 * time.Second)
 }
-​```
+
+```
