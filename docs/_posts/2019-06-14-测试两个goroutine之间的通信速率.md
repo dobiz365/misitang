@@ -5,8 +5,12 @@ categories: [golang]
 description: 测试两个goroutine每秒可以发送多少信息
 keywords: golang,goroutine,chan
 ---
-
-// test.go
+/*
+测试两个goroutine每秒可以发送多少信息，在没有缓冲的情况下，大约为1615934，机器CPU E8400，内存2G
+在有缓冲时，如缓冲为10，大约为4353553
+可见缓冲可以显著提高吞吐量
+*/
+​```
 package main
 
 import (
@@ -14,11 +18,7 @@ import (
 	"time"
 )
 
-/*
-测试两个goroutine每秒可以发送多少信息，在没有缓冲的情况下，大约为1615934，机器CPU E8400，内存2G
-在有缓冲时，如缓冲为10，大约为4353553
-可见缓冲可以显著提高吞吐量
-*/
+
 func main() {
 	chan1 := make(chan int, 10)
 	go func() {
@@ -47,3 +47,4 @@ func main() {
 	}()
 	<-time.After(2 * time.Second)
 }
+​```
