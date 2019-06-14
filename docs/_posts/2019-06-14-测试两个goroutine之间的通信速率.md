@@ -5,6 +5,7 @@ categories: [golang]
 description: 测试两个goroutine每秒可以发送多少信息
 keywords: golang,goroutine,chan
 ---
+
 /*
 测试两个goroutine每秒可以发送多少信息，在没有缓冲的情况下，大约为1615934，机器CPU E8400，内存2G
 在有缓冲时，如缓冲为10，大约为4353553
