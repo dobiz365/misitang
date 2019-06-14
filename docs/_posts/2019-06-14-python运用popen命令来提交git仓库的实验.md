@@ -23,6 +23,6 @@ keywords: git,python,popen
 ```
 
 cmd=config['dir'][0:2]+" && cd "+config['dir']+" && git add -A && git commit -m \"add\" && git push"
-ret=os.popen(cmd,shell=True)
+ret=os.system(cmd)
 
 ```
