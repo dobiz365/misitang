@@ -11,7 +11,7 @@ keywords: golang,goroutine,chan
 在有缓冲时，如缓冲为10，大约为4353553
 可见缓冲可以显著提高吞吐量
 */
-​```
+​```c++
 package main
 
 import (
